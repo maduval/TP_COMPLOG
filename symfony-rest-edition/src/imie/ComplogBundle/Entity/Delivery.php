@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Delivery
 {
+    //--------------
+    // ENTITY FIELDS
+    //--------------
+
     /**
      * @var integer
      *
@@ -93,5 +97,54 @@ class Delivery
     {
         return $this->deliveryAt;
     }
+
+    //------------------------------
+    // RELATIONSHIP BETWEEN ENTITIES
+    //------------------------------
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CustOrder", inversedBy="deliveries")
+     * @ORM\JoinColumn(name="CustOrder_id", referencedColumnName="id")
+     */
+    private $custOrder;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="deliveries")
+     * @ORM\JoinColumn(name="Invoice_id", referencedColumnName="id")
+     */
+    private $invoice;
+
+    /**
+     * @return mixed
+     */
+    public function getCustOrder ()
+    {
+        return $this->custOrder;
+    }
+
+    /**
+     * @param mixed $custOrder
+     */
+    public function setCustOrder ( $custOrder )
+    {
+        $this->custOrder = $custOrder;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInvoice ()
+    {
+        return $this->invoice;
+    }
+
+    /**
+     * @param mixed $invoice
+     */
+    public function setInvoice ( $invoice )
+    {
+        $this->invoice = $invoice;
+    }
+
 }
 

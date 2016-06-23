@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Invoice
 {
+    //--------------
+    // ENTITY FIELDS
+    //--------------
+
     /**
      * @var integer
      *
@@ -93,5 +97,37 @@ class Invoice
     {
         return $this->invoiceAt;
     }
+
+    //------------------------------
+    // RELATIONSHIP BETWEEN ENTITIES
+    //------------------------------
+
+    /**
+     * @ORM\OneToMany(targetEntity="Delivery", mappedBy="invoice")
+     */
+    private $deliveries;
+
+
+    public function __construct()
+    {
+        $this->deliveries = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeliveries ()
+    {
+        return $this->deliveries;
+    }
+
+    /**
+     * @param mixed $deliveries
+     */
+    public function setDeliveries ( $deliveries )
+    {
+        $this->deliveries = $deliveries;
+    }
+
 }
 

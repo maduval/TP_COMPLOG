@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Customer
 {
+    //--------------
+    // ENTITY FIELDS
+    //--------------
+
     /**
      * @var integer
      *
@@ -248,5 +252,38 @@ class Customer
     {
         return $this->email;
     }
+
+    //------------------------------
+    // RELATIONSHIP BETWEEN ENTITIES
+    //------------------------------
+
+    /**
+     * @ORM\OneToMany(targetEntity="CustOrder", mappedBy="customer")
+     */
+    private $custOrders;
+
+
+    public function __construct()
+    {
+        $this->custOrders = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustOrders ()
+    {
+        return $this->custOrders;
+    }
+
+    /**
+     * @param mixed $custOrders
+     */
+    public function setCustOrders ( $custOrders )
+    {
+        $this->custOrders = $custOrders;
+    }
+
+
 }
 

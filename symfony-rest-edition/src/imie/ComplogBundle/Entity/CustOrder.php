@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class CustOrder
 {
+    //--------------
+    // ENTITY FIELDS
+    //--------------
+
     /**
      * @var integer
      *
@@ -92,6 +96,81 @@ class CustOrder
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    //------------------------------
+    // RELATIONSHIP BETWEEN ENTITIES
+    //------------------------------
+
+    /**
+     * @ORM\OneToMany(targetEntity="CustOrderDetail", mappedBy="custOrder")
+     */
+    private $custOrderDetails;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Delivery", mappedBy="custOrder")
+     */
+    private $deliveries;
+
+
+    public function __construct()
+    {
+        $this->custOrderDetails = new ArrayCollection();
+        $this->deliveries = new ArrayCollection();
+    }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Customer", inversedBy="custOrders")
+     * @ORM\JoinColumn(name="Customer_id", referencedColumnName="id")
+     */
+    private $customer;
+
+
+    /**
+     * @return mixed
+     */
+    public function getCustOrderDetails ()
+    {
+        return $this->custOrderDetails;
+    }
+
+    /**
+     * @param mixed $custOrderDetails
+     */
+    public function setCustOrderDetails ( $custOrderDetails ) {
+        $this->custOrderDetails = $custOrderDetails;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDeliveries ()
+    {
+        return $this->deliveries;
+    }
+
+    /**
+     * @param mixed $deliveries
+     */
+    public function setDeliveries ( $deliveries )
+    {
+        $this->deliveries = $deliveries;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustomer ()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * @param mixed $customer
+     */
+    public function setCustomer ( $customer )
+    {
+        $this->customer = $customer;
     }
 }
 

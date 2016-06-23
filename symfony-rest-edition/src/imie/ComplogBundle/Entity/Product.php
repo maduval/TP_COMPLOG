@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Product
 {
+    //--------------
+    // ENTITY FIELDS
+    //--------------
+
     /**
      * @var integer
      *
@@ -41,7 +45,6 @@ class Product
      * @ORM\Column(name="price", type="float")
      */
     private $price;
-
 
     /**
      * Get id
@@ -124,5 +127,40 @@ class Product
     {
         return $this->price;
     }
+
+    //------------------------------
+    // RELATIONSHIP BETWEEN ENTITIES
+    //------------------------------
+
+    /**
+     * @ORM\OneToMany(targetEntity="CustOrderDetail", mappedBy="product")
+     */
+    private $custOrderDetails;
+
+    /**
+     * Product constructor.
+     */
+    public function __construct()
+    {
+        $this->custOrderDetails = new ArrayCollection();
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCustOrderDetails ()
+    {
+        return $this->custOrderDetails;
+    }
+
+    /**
+     * @param mixed $custOrderDetails
+     */
+    public function setCustOrderDetails ( $custOrderDetails )
+    {
+        $this->custOrderDetails = $custOrderDetails;
+    }
+
+
 }
 
