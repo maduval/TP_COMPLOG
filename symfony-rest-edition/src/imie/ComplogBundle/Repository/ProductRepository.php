@@ -1,6 +1,6 @@
 <?php
 
-namespace imie\ComplogBundle\Entity;
+namespace imie\ComplogBundle\Repository;
 
 /**
  * ProductRepository

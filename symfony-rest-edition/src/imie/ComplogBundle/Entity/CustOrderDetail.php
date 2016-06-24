@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * CustOrderDetail
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="imie\ComplogBundle\Entity\CustOrderDetailRepository")
+ * @ORM\Entity(repositoryClass="imie\ComplogBundle\Repository\CustOrderDetailRepository")
  */
 class CustOrderDetail
 {
