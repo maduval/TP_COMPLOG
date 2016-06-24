@@ -17,8 +17,16 @@ class DeliveryType extends AbstractType
         $builder
             ->add('ref')
             ->add('deliveryAt')
-            ->add('custOrder')
-            ->add('invoice')
+//            ->add('custOrder')
+            ->add('custOrder', 'entity', array(
+                'class' => 'imieComplogBundle:CustOrder',
+                'choice_label' => 'ref',
+            ))
+//            ->add('invoice')
+            ->add('invoice', 'entity', array(
+                'class' => 'imieComplogBundle:Invoice',
+                'choice_label' => 'ref',
+            ))
         ;
     }
     

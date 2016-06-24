@@ -16,8 +16,16 @@ class CustOrderDetailType extends AbstractType
     {
         $builder
             ->add('qte')
-            ->add('product')
-            ->add('custOrder')
+//            ->add('product')
+            ->add('product', 'entity', array(
+                'class' => 'imieComplogBundle:Product',
+                'choice_label' => 'name',
+            ))
+//            ->add('custOrder')
+            ->add('custOrder', 'entity', array(
+                'class' => 'imieComplogBundle:CustOrder',
+                'choice_label' => 'ref',
+            ))
         ;
     }
     
