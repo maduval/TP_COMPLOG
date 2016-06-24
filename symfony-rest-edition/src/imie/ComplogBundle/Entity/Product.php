@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * Product
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="imie\ComplogBundle\Entity\ProductRepository")
+ * @ORM\Entity(repositoryClass="imie\ComplogBundle\Repository\ProductRepository")
  */
 class Product
 {

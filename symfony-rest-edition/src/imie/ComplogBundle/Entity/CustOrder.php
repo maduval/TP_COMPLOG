@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * CustOrder
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="imie\ComplogBundle\Entity\CustOrderRepository")
+ * @ORM\Entity(repositoryClass="imie\ComplogBundle\Repository\CustOrderRepository")
  */
 class CustOrder
 {

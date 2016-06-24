@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Delivery
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="imie\ComplogBundle\Entity\DeliveryRepository")
+ * @ORM\Entity(repositoryClass="imie\ComplogBundle\Repository\DeliveryRepository")
  */
 class Delivery
 {
