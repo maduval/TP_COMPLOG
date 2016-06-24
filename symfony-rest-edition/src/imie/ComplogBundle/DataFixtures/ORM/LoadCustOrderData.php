@@ -8,12 +8,14 @@
 
     namespace imie\ComplogBundle\DataFixtures\ORM;
 
-
-    use Doctrine\Common\DataFixtures\FixtureInterface;
+    use Doctrine\Common\DataFixtures\AbstractFixture;
+    use Doctrine\Common\DataFixtures\OrderedFixtureInterface;
     use Doctrine\Common\Persistence\ObjectManager;
     use imie\ComplogBundle\Entity\CustOrder;
+    use Symfony\Component\Validator\Constraints\Date;
+    use Symfony\Component\Validator\Constraints\DateTime;
 
-    class LoadCustOrderData implements FixtureInterface
+    class LoadCustOrderData extends AbstractFixture implements OrderedFixtureInterface
     {
 
         /**
@@ -23,7 +25,21 @@
          */
         public function load ( ObjectManager $manager )
         {
-            // TODO: Implement load() method.
+            $order1 = new CustOrder();
+            $order1->setRef('ODRE001');
+            $order1->setCreatedAt(new \DateTime('2016-06-15'));
+            $order1->setCustomer($this->getReference('customer1'));
+
+            $manager->persist($order1);
+
+            $order2 = new CustOrder();
+            $order2->setRef('ODRE002');
+            $order2->setCreatedAt(new \DateTime('2016-06-17'));
+            $order2->setCustomer($this->getReference('customer2'));
+
+            $manager->persist($order2);
+
+            $manager->flush();
         }
 
         public function getOrder()
