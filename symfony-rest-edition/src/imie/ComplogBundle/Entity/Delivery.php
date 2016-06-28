@@ -104,13 +104,13 @@ class Delivery
 
     /**
      * @ORM\ManyToOne(targetEntity="CustOrder", inversedBy="deliveries")
-     * @ORM\JoinColumn(name="CustOrder_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="CustOrder_id", referencedColumnName="id", onDelete="cascade")
      */
     private $custOrder;
 
     /**
      * @ORM\ManyToOne(targetEntity="Invoice", inversedBy="deliveries")
-     * @ORM\JoinColumn(name="Invoice_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="Invoice_id", referencedColumnName="id", onDelete="cascade")
      */
     private $invoice;
 
