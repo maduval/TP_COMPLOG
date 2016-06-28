@@ -1,0 +1,4 @@
+users :
+  type: rest
+  resource:     "imieComplogBundle:CustOrderRest"
+  name_prefix:  api_
