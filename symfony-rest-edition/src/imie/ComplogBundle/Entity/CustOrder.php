@@ -122,7 +122,7 @@ class CustOrder
 
     /**
      * @ORM\ManyToOne(targetEntity="Customer", inversedBy="custOrders")
-     * @ORM\JoinColumn(name="Customer_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="Customer_id", referencedColumnName="id", onDelete="cascade")
      */
     private $customer;
 

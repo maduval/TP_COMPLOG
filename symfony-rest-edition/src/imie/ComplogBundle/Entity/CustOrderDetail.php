@@ -73,13 +73,13 @@ class CustOrderDetail
 
     /**
      * @ORM\ManyToOne(targetEntity="Product", inversedBy="custOrderDetails")
-     * @ORM\JoinColumn(name="Product_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="Product_id", referencedColumnName="id", onDelete="cascade")
      */
     private $product;
 
     /**
      * @ORM\ManyToOne(targetEntity="CustOrder", inversedBy="custOrderDetails")
-     * @ORM\JoinColumn(name="CustOrder_id", referencedColumnName="id")
+     * @ORM\JoinColumn(name="CustOrder_id", referencedColumnName="id", onDelete="cascade")
      */
     private $custOrder;
 
