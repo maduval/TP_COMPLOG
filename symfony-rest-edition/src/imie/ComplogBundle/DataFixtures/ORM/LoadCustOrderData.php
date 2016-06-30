@@ -26,14 +26,14 @@
         public function load ( ObjectManager $manager )
         {
             $order1 = new CustOrder();
-            $order1->setRef('ORDE001');
+            $order1->setRef('ORDE1');
             $order1->setCreatedAt(new \DateTime('2016-06-15'));
             $order1->setCustomer($this->getReference('customer1'));
 
             $manager->persist($order1);
 
             $order2 = new CustOrder();
-            $order2->setRef('ORDE002');
+            $order2->setRef('ORDE2');
             $order2->setCreatedAt(new \DateTime('2016-06-17'));
             $order2->setCustomer($this->getReference('customer2'));
 

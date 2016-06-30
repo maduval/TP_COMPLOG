@@ -24,7 +24,6 @@
          *
          * @ApiDoc(
          *  resource=true,
-         *  description="This is a description of your API method",
          * )
          */
         public function getCustOrderAction($ref){
@@ -45,7 +44,6 @@
          *
          * @ApiDoc(
          *  resource=true,
-         *  description="This is a description of your API method",
          * )
          */
         public function postCustOrderAction($customerId){
@@ -53,10 +51,10 @@
             $em = $this->getDoctrine()->getManager();
 
             $customer = $em->getRepository('imieComplogBundle:Customer')->findOneById($customerId);
+            $repository = $em->getRepository('imieComplogBundle:CustOrder');
 
             $order = new CustOrder();
-            $order->setRef('ORDE007');
-            $order->setCreatedAt(new \DateTime('2016-06-15'));
+            $order->setRef($repository->getNextRef());
             $order->setCustomer($customer);
 
             $em->persist($order);

@@ -10,4 +10,21 @@ namespace imie\ComplogBundle\Repository;
  */
 class CustOrderRepository extends \Doctrine\ORM\EntityRepository
 {
+    /**
+     * @return string
+     */
+    public function getNextRef(){
+
+        $invoice = $this->findOneBy(
+            array(),
+            array('id' => 'DESC')
+        );
+        $lastRef = $invoice->getRef();
+        $lastNumber = preg_replace("/[^0-9]/", '', $lastRef);
+
+        $nextNumber = (int)$lastNumber + 1;
+        $nextRef = 'ORDE' . (string)$nextNumber;
+
+        return $nextRef;
+    }
 }

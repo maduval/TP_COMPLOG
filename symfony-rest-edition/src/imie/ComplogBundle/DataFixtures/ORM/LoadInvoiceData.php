@@ -23,13 +23,13 @@
         public function load ( ObjectManager $manager )
         {
             $invoice1 = new Invoice();
-            $invoice1->setRef('INVO001');
+            $invoice1->setRef('INVO1');
             $invoice1->setInvoiceAt(new \DateTime('2016-06-18'));
 
             $manager->persist($invoice1);
 
             $invoice2 = new Invoice();
-            $invoice2->setRef('INVO002');
+            $invoice2->setRef('INVO2');
             $invoice2->setInvoiceAt(new \DateTime('2016-06-21'));
 
             $manager->persist($invoice2);
