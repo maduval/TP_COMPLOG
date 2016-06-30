@@ -14,10 +14,10 @@ class InvoiceType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder
-            ->add('ref')
-            ->add('invoiceAt')
-        ;
+//        $builder
+//            ->add('ref')
+//            ->add('invoiceAt')
+//        ;
     }
     
     /**

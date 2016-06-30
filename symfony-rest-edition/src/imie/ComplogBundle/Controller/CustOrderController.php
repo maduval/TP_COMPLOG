@@ -50,6 +50,9 @@ class CustOrderController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $repository = $em->getRepository('imieComplogBundle:CustOrder');
+
+            $entity->setRef($repository->getNextRef());
             $em->persist($entity);
             $em->flush();
 

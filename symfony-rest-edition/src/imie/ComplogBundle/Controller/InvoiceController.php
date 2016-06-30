@@ -50,6 +50,9 @@ class InvoiceController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $repository = $em->getRepository('imieComplogBundle:Invoice');
+
+            $entity->setRef($repository->getNextRef());
             $em->persist($entity);
             $em->flush();
 
