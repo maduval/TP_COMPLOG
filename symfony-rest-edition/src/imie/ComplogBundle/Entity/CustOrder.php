@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="imie\ComplogBundle\Repository\CustOrderRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class CustOrder
 {
@@ -80,11 +81,13 @@ class CustOrder
      *
      * @param \DateTime $createdAt
      *
+     * @ORM\PrePersist
+     *
      * @return CustOrder
      */
     public function setCreatedAt($createdAt)
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = new \DateTime();
 
         return $this;
     }

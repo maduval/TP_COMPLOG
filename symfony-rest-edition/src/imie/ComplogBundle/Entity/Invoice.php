@@ -10,6 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  *
  * @ORM\Table()
  * @ORM\Entity(repositoryClass="imie\ComplogBundle\Repository\InvoiceRepository")
+ * @ORM\HasLifecycleCallbacks()
  */
 class Invoice
 {
@@ -36,7 +37,7 @@ class Invoice
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="invoiceAt", type="date")
+     * @ORM\Column(name="invoiceAt", type="datetime", nullable=true)
      */
     private $invoiceAt;
 
@@ -80,11 +81,14 @@ class Invoice
      *
      * @param \DateTime $invoiceAt
      *
+     * @ORM\PrePersist
+     *
      * @return Invoice
      */
     public function setInvoiceAt($invoiceAt)
     {
-        $this->invoiceAt = $invoiceAt;
+
+        $this->invoiceAt = new \DateTime();
 
         return $this;
     }
