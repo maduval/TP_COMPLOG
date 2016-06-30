@@ -1,4 +1,9 @@
-users :
+orders :
   type: rest
   resource:     "imieComplogBundle:CustOrderRest"
+  name_prefix:  api_
+
+invoices :
+  type: rest
+  resource:     "imieComplogBundle:InvoiceRest"
   name_prefix:  api_

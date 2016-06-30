@@ -9,6 +9,7 @@
     namespace imie\ComplogBundle\Controller;
 
     use FOS\RestBundle\Controller\Annotations\View;
+    use imie\ComplogBundle\Entity\Invoice;
     use Symfony\Bundle\FrameworkBundle\Controller\Controller;
     use Symfony\Component\Security\Core\Exception\AccessDeniedException;
     use Nelmio\ApiDocBundle\Annotation\ApiDoc;
@@ -64,4 +65,5 @@
             return $order;
 
         }
+
     }
