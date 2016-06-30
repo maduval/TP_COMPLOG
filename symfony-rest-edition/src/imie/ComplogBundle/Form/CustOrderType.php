@@ -15,9 +15,7 @@ class CustOrderType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ref')
-            ->add('createdAt')
-//            ->add('customer')
+//            ->add('createdAt')
             ->add('customer', 'entity', array(
                 // query choices from this entity
                 'class' => 'imieComplogBundle:Customer',
